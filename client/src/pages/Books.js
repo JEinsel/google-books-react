@@ -37,12 +37,12 @@ class Books extends Component {
     console.log(API.getGoogleBooks)
     console.log(axios)
 
-    // API.getGoogleBooks(this.state.search)
-    fetch("https://www.googleapis.com/books/v1/volumes?q=Storm+Front")
+    // axios.get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.search)
+    API.getGoogleBooks(this.state.search)
       .then(res => {
         console.log(res, "Line 35")
         if (res.data.items === "error") {
-          throw new Error(res.data.items)
+         console.log(res.data.items)
         }
         else {
           let results = res.data.items
@@ -68,9 +68,12 @@ class Books extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-2">
+
+          </Col>
+          <Col size="md-8">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1>Search for a book!</h1>
             </Jumbotron>
             <form>
               <Input onChange={(event) => this.onChangeHandler(event)} name="title" placeholder="Title (required)" />

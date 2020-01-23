@@ -3,7 +3,7 @@ import axios from "axios";
 export const API = {
   getGoogleBooks: function (search) {
     console.log("line 5 ", search)
-    // return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + search)
+    return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + search + "&key=")
 
 
 
@@ -14,10 +14,8 @@ export const API = {
     //   .then(function (response) {
     //    console.log(response, "Line 15")
     //   });
-
-
+    // Gets all books
   },
-  // Gets all books
   getBooks: function () {
     return axios.get("/api/books");
   },
